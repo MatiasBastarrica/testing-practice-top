@@ -23,6 +23,11 @@ test("Caesar cipher a bunch of stirngs", () => {
       shift: 1,
       expect: "bcdef",
     },
+    {
+      string: "Hello, World! 24",
+      shift: 3,
+      expect: "Khoor, Zruog! 24",
+    },
   ];
 
   testCases.forEach((testCase) => {

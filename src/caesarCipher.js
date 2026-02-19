@@ -32,14 +32,18 @@ export function caesarCipher(string, shift) {
   const lettersArr = string.split("");
 
   lettersArr.forEach((letter) => {
-    let letterCiphered;
-    let startIndex = alphabet.indexOf(letter.toLowerCase());
-    let finalIndex = findFinalIndex(startIndex, shift);
-    letterCiphered = alphabet[finalIndex];
-    if (isUpperCase(letter)) {
-      letterCiphered = letterCiphered.toUpperCase();
+    if (isNotALetter(letter)) {
+      cipherArr.push(letter);
+    } else {
+      let letterCiphered;
+      let startIndex = alphabet.indexOf(letter.toLowerCase());
+      let finalIndex = findFinalIndex(startIndex, shift);
+      letterCiphered = alphabet[finalIndex];
+      if (isUpperCase(letter)) {
+        letterCiphered = letterCiphered.toUpperCase();
+      }
+      cipherArr.push(letterCiphered);
     }
-    cipherArr.push(letterCiphered);
   });
 
   function findFinalIndex(startIndex, shift) {
@@ -54,6 +58,10 @@ export function caesarCipher(string, shift) {
 
   function isUpperCase(letter) {
     return /[A-Z]/.test(letter);
+  }
+
+  function isNotALetter(letter) {
+    return /[^\w]|[1-9]/.test(letter);
   }
 
   return cipherArr.join("");
