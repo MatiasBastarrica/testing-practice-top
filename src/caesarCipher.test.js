@@ -4,9 +4,9 @@ import { caesarCipher } from "./caesarCipher.js";
 test("Caesar cipher a bunch of stirngs", () => {
   const testCases = [
     {
-      string: "abc",
+      string: "aBc",
       shift: 3,
-      expect: "def",
+      expect: "dEf",
     },
     {
       string: "xyz",
