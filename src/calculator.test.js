@@ -32,3 +32,43 @@ test("Multiply 15*3", () => {
 test("Divide 15/3", () => {
   expect(calculator.divide(15, 3)).toBe(5);
 });
+
+test("Use the calculator", () => {
+  const testCases = [
+    {
+      num1: 4,
+      num2: 2,
+      expected: {
+        add: 6,
+        subtract: 2,
+        multiply: 8,
+        divide: 2,
+      },
+    },
+    {
+      num1: 15,
+      num2: 3,
+      expected: {
+        add: 18,
+        subtract: 12,
+        multiply: 45,
+        divide: 5,
+      },
+    },
+  ];
+
+  testCases.forEach((testCase) => {
+    expect(calculator.add(testCase.num1, testCase.num2)).toBe(
+      testCase.expected.add,
+    );
+    expect(calculator.subtract(testCase.num1, testCase.num2)).toBe(
+      testCase.expected.subtract,
+    );
+    expect(calculator.multiply(testCase.num1, testCase.num2)).toBe(
+      testCase.expected.multiply,
+    );
+    expect(calculator.divide(testCase.num1, testCase.num2)).toBe(
+      testCase.expected.divide,
+    );
+  });
+});
